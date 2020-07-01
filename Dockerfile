@@ -8,10 +8,6 @@ ENV EGG_SERVER_ENV production
 ENV NODE_ENV production
 ENV NODE_CONFIG_ENV production
 # Set the timezone in docker
-# RUN apk --update add tzdata \\
-#     && cp /usr/share/zoneinfo/Asia/Bangkok /etc/localtime \\
-#     && echo "Asia/Bangkok" > /etc/timezone \\
-#     && apk del tzdata
 COPY Bangkok /etc/localtime
 RUN echo Asia/Bangkok > /etc/timezone
 # Create Directory for the Container
