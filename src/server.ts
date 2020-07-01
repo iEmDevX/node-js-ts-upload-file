@@ -1,37 +1,24 @@
 import express from 'express'
-import fs from 'fs'
-import bodyParser from 'body-parser'
 import { ConfigENV } from './environments/config.env'
 import { EnvModel } from './environments/model.env'
+import { ConfigUplaodFile } from './config/upload-file.config'
 
 const app = express()
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+
 const dataEnv: EnvModel = ConfigENV.getValue()
+const upload = ConfigUplaodFile.data
 
 app.get('/', (req, res) => {
   res.send('Hello world!!!')
 })
 
-app.post('/get-list-file', async (req, res) => {
-  const listDirName: string[] = []
-  const listFileName: string[] = []
-  const path = 'uploads/' + req.body.path ?? ''
-  let files: string[] = []
-  try {
-    files = await fs.readdirSync(path)
-  } catch (error) {
-    res.send({ 'status': false })
-  }
-  for await (const file of files) {
-    const isDir = await fs.lstatSync(path + file).isDirectory()
-    if (isDir) {
-      listDirName.push(file)
-    } else {
-      listFileName.push(file)
-    }
-  }
-  res.send({ dir: listDirName, file: listFileName })
+app.post('/profile', upload.single('profile'), (req, res, next) => {
+  console.log(req.file)
+  res.send({
+    'status': 'SUCCESS',
+    'filename': req.file.filename,
+    'mimetype': req.file.mimetype,
+  })
 })
 
 app.listen(dataEnv.PORT, (err) => {
