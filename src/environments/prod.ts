@@ -2,7 +2,7 @@ import { EnvModel } from './model.env'
 
 export class ProdENV {
     static data: EnvModel = {
-        PORT: 80,
+        PORT: 8080,
         ENV: 'production',
     }
 }
