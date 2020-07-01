@@ -5,7 +5,95 @@
     ],
     "jsRules": {},
     "rules": {
-        "no-console": false
+        "semicolon": {
+            "options": [
+                "never"
+            ]
+        },
+        "quotemark": [
+            true,
+            "single"
+        ],
+        "space-before-function-paren": {
+            "options": {
+                "anonymous": "never",
+                "asyncArrow": "always",
+                "constructor": "never",
+                "method": "never",
+                "named": "never"
+            }
+        },
+        "typedef-whitespace": {
+            "options": [
+                {
+                    "call-signature": "nospace",
+                    "index-signature": "nospace",
+                    "parameter": "nospace",
+                    "property-declaration": "nospace",
+                    "variable-declaration": "nospace"
+                },
+                {
+                    "call-signature": "onespace",
+                    "index-signature": "onespace",
+                    "parameter": "onespace",
+                    "property-declaration": "onespace",
+                    "variable-declaration": "onespace"
+                }
+            ]
+        },
+        "whitespace": {
+            "options": [
+                "check-branch",
+                "check-decl",
+                "check-operator",
+                "check-separator",
+                "check-type",
+                "check-typecast"
+            ]
+        },
+        "no-console": [
+            false,
+            "debug",
+            "info",
+            "time",
+            "timeEnd",
+            "trace",
+            "log"
+        ],
+        "import-spacing": true,
+        "indent": {
+            "options": [
+                "spaces"
+            ]
+        },
+        "align": {
+            "options": [
+                "parameters",
+                "statements"
+            ]
+        },
+        "array-type": false,
+        "arrow-return-shorthand": true,
+        "curly": true,
+        "deprecation": {
+            "severity": "warning"
+        },
+        "component-class-suffix": true,
+        "contextual-lifecycle": true,
+        "directive-class-suffix": true,
+        "directive-selector": [
+            true,
+            "attribute",
+            "app",
+            "camelCase"
+        ],
+        "component-selector": [
+            true,
+            "element",
+            "app",
+            "kebab-case"
+        ],
+        "eofline": true
     },
     "rulesDirectory": []
 }

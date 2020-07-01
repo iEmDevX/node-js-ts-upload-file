@@ -4,8 +4,8 @@
   "description": "test express by ts",
   "main": "src/server.ts",
   "scripts": {
-    "start:dev": "nodemon",
-    "start:prod": "npm run build && node dist/server.js",
+    "start:dev": "NODE_ENV=development nodemon",
+    "start:prod": "npm run build && NODE_ENV=production node dist/server.js",
     "build": "rimraf ./build && tsc",
     "tsc": "tsc"
   },
